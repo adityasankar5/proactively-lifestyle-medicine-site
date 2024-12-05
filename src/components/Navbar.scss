@@ -60,14 +60,11 @@ html {
                 color: #707070;
             }
 
-                         &:last-child::after {
-                             content: ""; // Ensure no "|" after the last link
-                         }
-
-            
+            &:last-child::after {
+                content: ""; // Ensure no "|" after the last link
+            }
         }
     }
-
 
     // Hamburger Button for Mobile
     &__hamburger {
@@ -81,31 +78,135 @@ html {
 
     // Overlay Section for Mobile
     &__overlay {
-        position: fixed;
+    position: fixed;
         top: 0;
-        right: -100%; // Start off-screen
+        left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background
+        background-color: rgba(0, 0, 0, 0.5);
         z-index: 1000;
-        transition: right 0.3s ease-in-out;
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        /* Initially off-screen */
+        transition: transform 0.3s ease-in-out;
+        /* Transition on transform */
 
         &.active {
-            right: 0; // Slide into view
+        transform: translateX(0);
+            /* Slide in when active */        }
+
+        &__contents {
+            // margin-top:vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
         }
 
-        .navbar__close {
-            margin: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: transparent;
-            color: #fff;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
+        // Overlay Header (Logo, ProVital, Close Button)
+        &__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #eaeaea;
+            width: 100%;
+
+            .navbar__icon {
+                margin-left: 1rem;
+                width: 50px;
+                height: 50px;
+            }
+
+            .navbar__logo {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #000;
+            }
+
+            .navbar__close {
+                cursor: pointer;
+                margin-right: 2rem;
+            }
         }
+
+        // Overlay Box (Placeholder Box)
+                &__dialog-box {
+                    margin-top: 8%;
+                    margin-bottom: 4%;
+                        background-color: #fff;
+                        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                        border-radius: 4px;
+                        padding: 8px 0;
+
+                        .navbar__dropdown-row {
+                                display: flex;
+                                justify-content: space-between;
+                                padding: 8px 16px;
+                        
+                                a {
+                                    text-decoration: none;
+                                    color: #000;
+                                    font-weight: 600; // Font weight from Figma
+                        
+                                    &:hover {
+                                        background-color: #f0f0f0;
+                                    }
+                        
+                                    &.login-signup {
+                                        color: #0066cc; // Blue color for links
+                                        text-decoration: underline;
+                                    }
+                        
+                                    &::after {
+                                        content: ""; // Remove "|" from dropdown links
+                                    }
+                                }
+                            }
+                                                        .navbar__dropdown-divider {
+                                                            height: 1px;
+                                                            width: 94%;
+                                                            background-color: #ddd;
+                                                            margin: 0 8px;
+                                                        }
+                }
+        
+                &__menu {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    flex-grow: 1;
+                    width: 100%;
+        
+                    &-item {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 1rem 1.5rem;
+                        font-size: 1.1rem;
+                        font-weight: 500;
+                        color: #707070;
+                        border-bottom: 1px solid #eaeaea;
+                        width: 100%;
+        
+                        &:hover {
+                            background-color: #f0f0f0;
+                            cursor: pointer;
+                        }
+        
+                        img {
+                            margin-right: 3rem;
+                        }
+            }
+        }
+
+  
     }
 
     // Dropdown Menu
@@ -117,87 +218,89 @@ html {
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            &::after {
-                    content: ""; // Remove the "|" after Login/Signup
-                }
-        }
-                        .navbar__dropdown-content {
-                            display: none; // Hide dropdown by default
-                            position: absolute;
-                            top: 100%; // Position it below the "Login / Signup" link
-                            left: 50%; // Position it in the center horizontally
-                            transform: translateX(-50%); // Offset to ensure it's centered
-                            background-color: #fff;
-                            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-                            width: 240px; // Adjusted width for the items to fit
-                            border-radius: 4px;
-                            z-index: 1000;
-                            padding: 8px 0;
-                            margin-left: -4vw;
-            
-                            .navbar__dropdown-row {
-                                display: flex;
-                                justify-content: space-between;
-                                padding: 8px 16px;
-            
-                                a {
-                                    text-decoration: none;
-                                    color: #000;
-                                    font-weight: 600; // Font weight from Figma
-            
-                                    &:hover {
-                                        background-color: #f0f0f0;
-                                    }
-            
-                                    &.login-signup {
-                                        color: #0066cc; // Blue color for links
-                                        text-decoration: underline;
-                                    }
 
-                                    &::after {
-                                        content: ""; // Remove "|" from dropdown links
-                                    }
-                                }
-                            }
+            &::after {
+                content: ""; // Remove the "|" after Login/Signup
+            }
+        }
+
+        .navbar__dropdown-content {
+            display: none; // Hide dropdown by default
+            position: absolute;
+            top: 100%; // Position it below the "Login / Signup" link
+            left: 50%; // Position it in the center horizontally
+            transform: translateX(-50%); // Offset to ensure it's centered
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 240px; // Adjusted width for the items to fit
+            border-radius: 4px;
+            z-index: 1000;
+            padding: 8px 0;
+            margin-left: -4vw;
+
+            .navbar__dropdown-row {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 16px;
+
+                a {
+                    text-decoration: none;
+                    color: #000;
+                    font-weight: 600; // Font weight from Figma
+
+                    &:hover {
+                        background-color: #f0f0f0;
+                    }
+
+                    &.login-signup {
+                        color: #0066cc; // Blue color for links
+                        text-decoration: underline;
+                    }
+
+                    &::after {
+                        content: ""; // Remove "|" from dropdown links
+                    }
+                }
+            }
+
+            .navbar__dropdown-divider {
+                height: 1px;
+                width: 94%;
+                background-color: #ddd;
+                margin: 0 8px;
+            }
+        }
+
+        &:hover .navbar__dropdown-content {
+            display: block; // Show dropdown on hover
+        }
+    }
+
+    // Navbar Login Text Fix
+    &__login::after {
+        content: ""; // Remove the "|" after the Login/Signup link
+    }
+
+    // Responsive Styles
+    @media (max-width: 768px) {
+        &__links {
+            display: none; // Hide links on mobile
+        }
+
+        &__overlay {
+            justify-content: flex-start; // Adjust overlay content alignment
             
-                            .navbar__dropdown-divider {
-                                height: 1px;
-                                width: 94%;
-                                background-color: #ddd;
-                                margin: 0 8px;
-                            }
-                        }
-            
-                        &:hover .navbar__dropdown-content {
-                            display: block; // Show dropdown on hover
-                        }
-                        }
-            
-                        // Navbar Login Text Fix
-                        &__login::after {
-                            content: ""; // Remove the "|" after the Login/Signup link
-                        }
-            
-                        // Responsive Styles
-                        @media (max-width: 768px) {
-                            &__links {
-                                display: none; // Hide links on mobile
-                            }
-            
-                            &__overlay {
-                                justify-content: flex-start; // Adjust overlay content alignment
-                                padding-top: 4rem;
-            
-                                a {
-                                    color: #fff; // White links for better visibility on dark overlay
-                                    padding: 1rem;
-                                    width: 100%;
-                                    text-align: center;
-            
-                                    &:hover {
-                                        background-color: rgba(255, 255, 255, 0.1);
-                                    }
-                                }
-                            }
-                        }
-                        }
+
+            a {
+                color: #fff; // White links for better visibility on dark overlay
+                padding: 1rem;
+                width: 100%;
+                text-align: center;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+    }
+}
