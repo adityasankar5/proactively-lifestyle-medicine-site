@@ -1,9 +1,18 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100vw; // Ensures it spans the full viewport width
     padding: 1rem 2rem;
     background-color: #fff; // Figma background color
+        box-sizing: border-box; // Prevent padding from reducing width
     border-bottom: 1px solid #eaeaea;
 
     // Logo and Icon Container
@@ -114,8 +123,9 @@
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         width: 240px; // Adjusted width for the items to fit
         border-radius: 4px;
-        z-index: 100;
+        z-index: 1000;
         padding: 8px 0;
+        margin-left:-4vw;
 
         .navbar__dropdown-row {
             display: flex;
@@ -140,7 +150,7 @@
 
         .navbar__dropdown-divider {
             height: 1px;
-            width: 100%;
+            width: 94%;
             background-color: #ddd;
             margin: 0 8px;
         }
