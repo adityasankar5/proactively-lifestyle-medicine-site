@@ -3,6 +3,7 @@ html {
     margin: 0;
     padding: 0;
     width: 100%;
+    font-family: 'Inter', sans-serif;
 }
 
 .navbar {
@@ -12,7 +13,7 @@ html {
     width: 100vw; // Ensures it spans the full viewport width
     padding: 1rem 2rem;
     background-color: #fff; // Figma background color
-        box-sizing: border-box; // Prevent padding from reducing width
+    box-sizing: border-box; // Prevent padding from reducing width
     border-bottom: 1px solid #eaeaea;
 
     // Logo and Icon Container
@@ -36,7 +37,6 @@ html {
     // Logo Text Styling
     &__logo {
         font-size: 1.5rem; // Match Figma font size
-        font-family: 'Inter', sans-serif;
         font-weight: 600;
         color: #000; // Figma font color
         position: relative;
@@ -51,116 +51,153 @@ html {
         a {
             text-decoration: none;
             color: #707070; // Match Figma link color
-            font-family: 'Inter', sans-serif;
             font-weight: 500;
-        }
+            position: relative;
 
-        &.active {
-            display: block; // For mobile menu
+            &::after {
+                content: "|";
+                margin: 0 10px;
+                color: #707070;
+            }
+
+                         &:last-child::after {
+                             content: ""; // Ensure no "|" after the last link
+                         }
+
+            
         }
     }
+
 
     // Hamburger Button for Mobile
     &__hamburger {
         display: none;
+        cursor: pointer;
 
-        .line {
-            background-color: #000; // Match Figma button color
-            height: 2px;
-            margin: 3px 0;
-        }
-    }
-
-    // Mobile View Styles
-    @media (max-width: 768px) {
-        &__hamburger {
+        @media (max-width: 768px) {
             display: block;
         }
-
-        &__links {
-            display: none;
-            flex-direction: column;
-            gap: 0; // No gap between links
-
-            &.active {
-                display: flex;
-            }
-        }
-    }
-}
-
-.navbar__link {
-    position: relative;
-
-    &::after {
-        content: "|";
-        margin: 0 10px;
-        color: #707070;
     }
 
-    &:last-child::after {
-        content: "";
-    }
-}
-
-.navbar__dropdown {
-    position: relative;
-
-    .navbar__login {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
-
-    .navbar__dropdown-content {
-        display: none; // Hide dropdown by default
-        position: absolute;
-        top: 100%; // Position it below the "Login / Signup" link
-        left: 50%; // Position it in the center horizontally
-        transform: translateX(-50%); // Offset it to ensure it's centered
-        background-color: #fff;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        width: 240px; // Adjusted width for the items to fit
-        border-radius: 4px;
+    // Overlay Section for Mobile
+    &__overlay {
+        position: fixed;
+        top: 0;
+        right: -100%; // Start off-screen
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background
         z-index: 1000;
-        padding: 8px 0;
-        margin-left:-4vw;
+        transition: right 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
 
-        .navbar__dropdown-row {
+        &.active {
+            right: 0; // Slide into view
+        }
+
+        .navbar__close {
+            margin: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+
+    // Dropdown Menu
+    &__dropdown {
+        position: relative;
+
+        .navbar__login {
             display: flex;
-            justify-content: space-between;
-            padding: 8px 16px;
-
-            a {
-                text-decoration: none;
-                color: #000;
-                font-weight: 600; // Font weight from Figma
-
-                &:hover {
-                    background-color: #f0f0f0;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            &::after {
+                    content: ""; // Remove the "|" after Login/Signup
                 }
-
-                &.login-signup {
-                    color: #0066cc; // Blue color for links
-                    text-decoration: underline;
-                }
-            }
         }
+                        .navbar__dropdown-content {
+                            display: none; // Hide dropdown by default
+                            position: absolute;
+                            top: 100%; // Position it below the "Login / Signup" link
+                            left: 50%; // Position it in the center horizontally
+                            transform: translateX(-50%); // Offset to ensure it's centered
+                            background-color: #fff;
+                            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                            width: 240px; // Adjusted width for the items to fit
+                            border-radius: 4px;
+                            z-index: 1000;
+                            padding: 8px 0;
+                            margin-left: -4vw;
+            
+                            .navbar__dropdown-row {
+                                display: flex;
+                                justify-content: space-between;
+                                padding: 8px 16px;
+            
+                                a {
+                                    text-decoration: none;
+                                    color: #000;
+                                    font-weight: 600; // Font weight from Figma
+            
+                                    &:hover {
+                                        background-color: #f0f0f0;
+                                    }
+            
+                                    &.login-signup {
+                                        color: #0066cc; // Blue color for links
+                                        text-decoration: underline;
+                                    }
 
-        .navbar__dropdown-divider {
-            height: 1px;
-            width: 94%;
-            background-color: #ddd;
-            margin: 0 8px;
-        }
-    }
-
-    &:hover .navbar__dropdown-content {
-        display: block; // Show dropdown on hover
-    }
-}
-
-.navbar__login::after {
-    content: ""; // Remove the "|" after the Login/Signup link
-}
+                                    &::after {
+                                        content: ""; // Remove "|" from dropdown links
+                                    }
+                                }
+                            }
+            
+                            .navbar__dropdown-divider {
+                                height: 1px;
+                                width: 94%;
+                                background-color: #ddd;
+                                margin: 0 8px;
+                            }
+                        }
+            
+                        &:hover .navbar__dropdown-content {
+                            display: block; // Show dropdown on hover
+                        }
+                        }
+            
+                        // Navbar Login Text Fix
+                        &__login::after {
+                            content: ""; // Remove the "|" after the Login/Signup link
+                        }
+            
+                        // Responsive Styles
+                        @media (max-width: 768px) {
+                            &__links {
+                                display: none; // Hide links on mobile
+                            }
+            
+                            &__overlay {
+                                justify-content: flex-start; // Adjust overlay content alignment
+                                padding-top: 4rem;
+            
+                                a {
+                                    color: #fff; // White links for better visibility on dark overlay
+                                    padding: 1rem;
+                                    width: 100%;
+                                    text-align: center;
+            
+                                    &:hover {
+                                        background-color: rgba(255, 255, 255, 0.1);
+                                    }
+                                }
+                            }
+                        }
+                        }

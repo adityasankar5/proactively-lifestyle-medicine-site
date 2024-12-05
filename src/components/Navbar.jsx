@@ -9,6 +9,10 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    console.log("Menu is open:", isMenuOpen);
+  };
+    const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -17,13 +21,12 @@ const Navbar = () => {
       <img className="navbar__icon" src={logo} alt="Logo Icon" />
       <div className="navbar__logo">ProVital</div>
       </div>
-      <nav className={`navbar__links ${isMenuOpen ? "active" : ""}`}>
+      <nav className="navbar__links">
   <a className="navbar__link" href="#practice">List Your Practice</a>
   <a className="navbar__link" href="#employers">For Employers</a>
   <a className="navbar__link" href="#courses">Courses</a>
   <a className="navbar__link" href="#speakers">Speakers</a>
   <a className="navbar__link" href="#doctors">Doctors</a>
-  {/* <a className="navbar__link" href="#doctors">Login / Signup <img src={down} height="7px"></img> </a> */}
 <div className="navbar__dropdown">
   <a href="#login" className="navbar__link navbar__login">
     Login / Signup &nbsp;<img src={down} height="7px" alt="Dropdown" />
@@ -45,6 +48,10 @@ const Navbar = () => {
 
 </nav>
       <img className="navbar__hamburger" src={bars} height="25px" alt="Hamburger Icon" onClick={toggleMenu} />
+      <div className={`navbar__overlay ${isMenuOpen ? "active" : ""}`}>
+        <button className="navbar__close" onClick={closeMenu}>X</button>
+        {/* Add your menu items here */}
+      </div>
     </header>
   );
 };
