@@ -18,7 +18,7 @@
         width: 50px; // Adjust size to match Figma
         height: 50px;
         border-radius: 10px; // Rounded edges for a "soft" look
-box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
         margin-right: 0.5rem; // Spacing between icon and text
         position: relative;
         top: 1px; // Slightly above the text
@@ -62,17 +62,6 @@ box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
         }
     }
 
-    // Login Button
-    &__button {
-        padding: 0.5rem 1rem;
-        border: 1px solid #000; // Match Figma color
-        border-radius: 5px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 600;
-        background-color: transparent;
-        color: #000;
-    }
-
     // Mobile View Styles
     @media (max-width: 768px) {
         &__hamburger {
@@ -82,6 +71,7 @@ box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
         &__links {
             display: none;
             flex-direction: column;
+            gap: 0; // No gap between links
 
             &.active {
                 display: flex;
@@ -91,7 +81,7 @@ box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
 .navbar__link {
-    position: relative; 
+    position: relative;
 
     &::after {
         content: "|";
@@ -100,7 +90,7 @@ box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
     }
 
     &:last-child::after {
-        content: ""; 
+        content: "";
     }
 }
 
@@ -118,16 +108,14 @@ box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
         display: none; // Hide dropdown by default
         position: absolute;
         top: 100%; // Position it below the "Login / Signup" link
-        left: 0;
+        left: 50%; // Position it in the center horizontally
+        transform: translateX(-50%); // Offset it to ensure it's centered
         background-color: #fff;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         width: 240px; // Adjusted width for the items to fit
         border-radius: 4px;
         z-index: 100;
         padding: 8px 0;
-
-        // Ensuring the dropdown stays within the page
-        margin-left: -5vw; 
 
         .navbar__dropdown-row {
             display: flex;
@@ -166,4 +154,3 @@ box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
 .navbar__login::after {
     content: ""; // Remove the "|" after the Login/Signup link
 }
-

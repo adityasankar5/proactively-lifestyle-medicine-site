@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.scss";
 import logo from "../assets/logo.png";
 import down from "../assets/down.png";
+import bars from "../assets/bars.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,11 +44,7 @@ const Navbar = () => {
 </div>
 
 </nav>
-      <button className="navbar__hamburger" onClick={toggleMenu}>
-        <span className="line"></span>
-        <span className="line"></span>
-        <span className="line"></span>
-      </button>
+      <img className="navbar__hamburger" src={bars} height="25px" alt="Hamburger Icon" onClick={toggleMenu} />
     </header>
   );
 };
