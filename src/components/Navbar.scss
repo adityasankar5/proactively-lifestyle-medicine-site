@@ -1,0 +1,169 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff; // Figma background color
+    border-bottom: 1px solid #eaeaea;
+
+    // Logo and Icon Container
+    &__logo-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    // Logo Icon Styling
+    &__icon {
+        width: 50px; // Adjust size to match Figma
+        height: 50px;
+        border-radius: 10px; // Rounded edges for a "soft" look
+box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
+        margin-right: 0.5rem; // Spacing between icon and text
+        position: relative;
+        top: 1px; // Slightly above the text
+    }
+
+    // Logo Text Styling
+    &__logo {
+        font-size: 1.5rem; // Match Figma font size
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        color: #000; // Figma font color
+        position: relative;
+        top: 4px; // Align text vertically to centerline of the icon
+    }
+
+    // Navbar Links
+    &__links {
+        display: flex;
+        gap: 10px;
+
+        a {
+            text-decoration: none;
+            color: #707070; // Match Figma link color
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        &.active {
+            display: block; // For mobile menu
+        }
+    }
+
+    // Hamburger Button for Mobile
+    &__hamburger {
+        display: none;
+
+        .line {
+            background-color: #000; // Match Figma button color
+            height: 2px;
+            margin: 3px 0;
+        }
+    }
+
+    // Login Button
+    &__button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #000; // Match Figma color
+        border-radius: 5px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        background-color: transparent;
+        color: #000;
+    }
+
+    // Mobile View Styles
+    @media (max-width: 768px) {
+        &__hamburger {
+            display: block;
+        }
+
+        &__links {
+            display: none;
+            flex-direction: column;
+
+            &.active {
+                display: flex;
+            }
+        }
+    }
+}
+
+.navbar__link {
+    position: relative; 
+
+    &::after {
+        content: "|";
+        margin: 0 10px;
+        color: #707070;
+    }
+
+    &:last-child::after {
+        content: ""; 
+    }
+}
+
+.navbar__dropdown {
+    position: relative;
+
+    .navbar__login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .navbar__dropdown-content {
+        display: none; // Hide dropdown by default
+        position: absolute;
+        top: 100%; // Position it below the "Login / Signup" link
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        width: 240px; // Adjusted width for the items to fit
+        border-radius: 4px;
+        z-index: 100;
+        padding: 8px 0;
+
+        // Ensuring the dropdown stays within the page
+        margin-left: -5vw; 
+
+        .navbar__dropdown-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 16px;
+
+            a {
+                text-decoration: none;
+                color: #000;
+                font-weight: 600; // Font weight from Figma
+
+                &:hover {
+                    background-color: #f0f0f0;
+                }
+
+                &.login-signup {
+                    color: #0066cc; // Blue color for links
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .navbar__dropdown-divider {
+            height: 1px;
+            width: 100%;
+            background-color: #ddd;
+            margin: 0 8px;
+        }
+    }
+
+    &:hover .navbar__dropdown-content {
+        display: block; // Show dropdown on hover
+    }
+}
+
+.navbar__login::after {
+    content: ""; // Remove the "|" after the Login/Signup link
+}
+
