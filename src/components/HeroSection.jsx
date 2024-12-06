@@ -57,62 +57,84 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
   }, []);
 
   return (
-    <section className="hero-section">
-      {/* Gradient Strip */}
-      <div className="gradient-strip"></div>
-
-      {/* Hero Content */}
-      <div className="content-container">
-        {/* Heading */}
-        <div className="heading-container">
-          <h1>
-            Book an appointment with <br /> <span>lifestyle medicine experts</span>
-          </h1>
-          <p>Optimize your lifestyle and reverse chronic diseases.</p>
-        </div>
-
-        {/* Input Fields */}
-        <div className="inputs-container">
-          <input
-            type="text"
-            placeholder="Condition, procedure, specialty"
-            className="input-field"
-          />
-          <input
-            type="text"
-            placeholder="City, state, or zip code"
-            className="input-field"
-          />
-          <input
-            type="text"
-            placeholder="Insurance carrier"
-            className="input-field"
-          />
-          <button className="find-now-btn">Find Now</button>
-        </div>
-
-        {/* Desktop View: Vertical Carousels */}
-        <div className="carousels-container">
-          <div className="carousel left-carousel" ref={leftCarouselRef}>
-            {imagesLeft.map((image, index) => (
-              <img key={index} src={image} alt={`Carousel Left ${index + 1}`} />
-            ))}
-          </div>
-          <div className="carousel right-carousel" ref={rightCarouselRef}>
-            {imagesRight.map((image, index) => (
-              <img key={index} src={image} alt={`Carousel Right ${index + 1}`} />
-            ))}
-          </div>
-        </div>
-
-        {/* Mobile View: Horizontal Carousel */}
-        <div className="mobile-carousel" ref={mobileCarouselRef}>
-          {allImages.map((image, index) => (
-            <img key={index} src={image} alt={`Carousel Mobile ${index + 1}`} />
-          ))}
-        </div>
+<section className="hero-section">
+          <div className="inputs-container desktop-input">
+        <input
+          type="text"
+          placeholder="Condition, procedure, specialty"
+          className="input-field"
+        />
+        <input
+          type="text"
+          placeholder="City, state, or zip code"
+          className="input-field"
+        />
+        <input
+          type="text"
+          placeholder="Insurance carrier"
+          className="input-field"
+        />
+        <button className="find-now-btn">Find Now</button>
       </div>
-    </section>
+  {/* Gradient Strip */}
+
+  <div className="gradient-strip"></div>
+
+  {/* Hero Content */}
+  <div className="content-container">
+    {/* Desktop View: Carousels */}
+    <div className="desktop-carousels">
+      <div className="carousel left-carousel" ref={leftCarouselRef}>
+        {imagesLeft.map((image, index) => (
+          <img key={index} src={image} alt={`Carousel Left ${index + 1}`} />
+        ))}
+      </div>
+      <div className="carousel right-carousel" ref={rightCarouselRef}>
+        {imagesRight.map((image, index) => (
+          <img key={index} src={image} alt={`Carousel Right ${index + 1}`} />
+        ))}
+      </div>
+    </div>
+
+    {/* Hero Text and Input Fields */}
+    <div className="text-container">
+      <div className="heading-container">
+        <h1>
+          Book an appointment with <br /> <span>lifestyle medicine experts</span>
+        </h1>
+        <p>Optimize your lifestyle and reverse chronic diseases.</p>
+      </div>
+
+      {/* Input Fields */}
+      <div className="inputs-container mobile-input">
+        <input
+          type="text"
+          placeholder="Condition, procedure, specialty"
+          className="input-field"
+        />
+        <input
+          type="text"
+          placeholder="City, state, or zip code"
+          className="input-field"
+        />
+        <input
+          type="text"
+          placeholder="Insurance carrier"
+          className="input-field"
+        />
+        <button className="find-now-btn">Find Now</button>
+      </div>
+    </div>
+
+    {/* Mobile View: Horizontal Carousel */}
+    <div className="mobile-carousel" ref={mobileCarouselRef}>
+      {allImages.map((image, index) => (
+        <img key={index} src={image} alt={`Carousel Mobile ${index + 1}`} />
+      ))}
+    </div>
+  </div>
+</section>
+
   );
 };
 

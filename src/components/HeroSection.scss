@@ -8,103 +8,92 @@ $input-border: #ccc;
     width: 100vw;
     background-color: white;
     overflow-x: hidden;
-    /* Prevent horizontal scrolling */
     overflow-y: hidden;
+
+    .inputs-container {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        padding: 1rem 1rem;
+        box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+        background-color: white;
+        position: absolute; // Default for desktop view
+        width: 80vw;
+        top: 70%;
+        left: 10%;
+        z-index: 3;
+
+        .input-field {
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1px solid $input-border;
+            border-radius: 6px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .find-now-btn {
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: $primary-color;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+        }
+    }
 
     .gradient-strip {
         position: absolute;
-        top: 50%;
+        top: 95%;
         left: -10%;
-        /* Prevent overflow */
         width: 120%;
-        /* Ensure it doesn't cause horizontal scroll */
-        height: 3vh;
+        height: 4.5vh;
         background: linear-gradient(270deg, $primary-color, $secondary-color);
         transform: translateY(-50%) rotate(-1.27deg);
-        z-index: 1;
+        z-index: 3;
+    }
+
+    .mobile-input {
+        display: none;
     }
 
     .content-container {
+        display: flex;
+        flex-direction: row;
         position: relative;
         z-index: 2;
         max-width: 1200px;
         margin: auto;
-        text-align: center;
         padding: 0 20px;
-        /* Add padding to prevent content from overflowing */
-
-        /* Heading */
-        .heading-container {
-            margin-bottom: 40px;
-
-            h1 {
-                font-size: 36px;
-                line-height: 1.4;
-                color: #333;
-
-                span {
-                    color: $primary-color;
-                }
-            }
-
-            p {
-                font-size: 18px;
-                color: #666;
-            }
-        }
-
-        /* Input Fields */
-        .inputs-container {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
-            padding: 1rem 1rem;
-            border-radius: 12px;
-            background-color: white;
-        
-            .input-field {
-                padding: 12px 15px;
-                font-size: 16px;
-                border: 1px solid $input-border;
-                border-radius: 6px;
-                flex: 1;
-                min-width: 200px;
-            }
-
-            .find-now-btn {
-                padding: 12px 20px;
-                font-size: 16px;
-                color: white;
-                background-color: $primary-color;
-                border: none;
-                border-radius: 6px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-
-                &:hover {
-                    background-color: darken($primary-color, 10%);
-                }
-            }
-        }
 
         /* Desktop Carousels */
-        .carousels-container {
+        .desktop-carousels {
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            flex: 1;
+            margin-right: 30px;
+            gap: 10px;
 
+            /* Space between carousel and text */
             .carousel {
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
                 overflow-y: hidden;
-                height: 300px;
+                height: 70vh;
+                width: 50%;
 
                 img {
-                    width: 150px;
+                    width: 100%;
                     height: auto;
                     border-radius: 8px;
                     object-fit: cover;
@@ -114,7 +103,37 @@ $input-border: #ccc;
 
             .right-carousel {
                 margin-top: -50px;
-                /* Right carousel starts higher */
+            }
+        }
+
+        /* Text and Input Section */
+        .text-container {
+            position: relative;
+            z-index: 2;
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .heading-container {
+                text-align: center;
+                margin-bottom: 40px;
+
+                h1 {
+                    font-size: 36px;
+                    line-height: 1.4;
+                    color: #333;
+
+                    span {
+                        color: $primary-color;
+                    }
+                }
+
+                p {
+                    font-size: 18px;
+                    color: #666;
+                }
             }
         }
 
@@ -122,7 +141,6 @@ $input-border: #ccc;
         .mobile-carousel {
             display: none;
             overflow-x: hidden;
-            /* Prevent overflow */
             white-space: nowrap;
             padding: 10px 0;
 
@@ -136,16 +154,19 @@ $input-border: #ccc;
             }
         }
     }
-}
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .hero-section {
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+        .desktop-input{
+            display: none;
+        }
+        .mobile-input{
+            display:flex;
+        }
         .content-container {
-            padding: 0 10px;
+            flex-direction: column;
 
-            /* Add padding for smaller screens */
-            .carousels-container {
+            .desktop-carousels {
                 display: none;
             }
 
@@ -154,7 +175,28 @@ $input-border: #ccc;
                 overflow-x: scroll;
                 scroll-snap-type: x mandatory;
                 gap: 10px;
-                /* Ensure spacing between items without overflow */
+            }
+        }
+
+        .inputs-container {
+            position: static; // Remove absolute positioning for mobile
+            margin: 20px auto;
+            width: calc(100% - 40px); // Adjust width for mobile
+            z-index: 2;
+        }
+
+        .text-container {
+            order: -1; // Ensure the text comes before the input fields
+            margin-bottom: 20px;
+
+            .heading-container {
+                h1 {
+                    font-size: 28px; // Adjust font size for smaller screens
+                }
+
+                p {
+                    font-size: 16px;
+                }
             }
         }
     }
