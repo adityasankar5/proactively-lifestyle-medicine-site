@@ -91,7 +91,7 @@ const Navbar = () => {
             ].map((item, index) => (
               <li key={index} className="navbar__overlay__menu-item">
                 {item}
-                <img src={rightArrow} height="15px" alt="Right Arrow" />
+                <img src={rightArrow} height="15px" alt="Right Arrow" onClick={toggleMenu} />
               </li>
             ))}
           </ul>
