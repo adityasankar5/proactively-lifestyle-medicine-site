@@ -8,6 +8,7 @@ import carousel21 from "../assets/carousel21.png";
 import carousel22 from "../assets/carousel22.png";
 import carousel23 from "../assets/carousel23.png";
 import carousel24 from "../assets/carousel24.png";
+import searchIcon from "../assets/searchIcon.png";
 
 const HeroSection = () => {
 
@@ -45,8 +46,8 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
 
   // Automatic scrolling setup
   useEffect(() => {
-    const intervalLeft = setInterval(() => scrollVerticalCarousel(leftCarouselRef, "down"), 50);
-    const intervalRight = setInterval(() => scrollVerticalCarousel(rightCarouselRef, "up"), 50);
+    const intervalLeft = setInterval(() => scrollVerticalCarousel(leftCarouselRef, "up"), 50);
+    const intervalRight = setInterval(() => scrollVerticalCarousel(rightCarouselRef, "down"), 50);
     const intervalMobile = setInterval(scrollHorizontalCarousel, 50);
 
     return () => {
@@ -63,7 +64,7 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
           type="text"
           placeholder="Condition, procedure, specialty"
           className="input-field"
-        />
+        />      
         <input
           type="text"
           placeholder="City, state, or zip code"
@@ -100,7 +101,7 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
     <div className="text-container">
       <div className="heading-container">
         <h1>
-          Book an appointment with <br /> <span>lifestyle medicine experts</span>
+          Book an appointment with <span>lifestyle medicine</span> experts
         </h1>
         <p>Optimize your lifestyle and reverse chronic diseases.</p>
       </div>
@@ -109,7 +110,7 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
       <div className="inputs-container mobile-input">
         <input
           type="text"
-          placeholder="Condition, procedure, specialty"
+          placeholder="Condition, procedure, speciality..."
           className="input-field"
         />
         <input
