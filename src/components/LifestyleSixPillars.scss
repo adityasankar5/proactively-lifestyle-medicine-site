@@ -1,0 +1,156 @@
+.pillars-carousel {
+   
+    margin: 0 auto;
+    padding: 2rem 0rem;
+    padding-right: 0;
+    text-align: center;
+    position: relative;
+    overflow-x: hidden;
+    width: 100vw;
+
+    /* Heading with Navigation Arrows */
+    .heading-with-arrows {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        h2 {
+            font-size: 1.5rem;
+
+            .highlight {
+                color: #f26835; // Orange
+                font-weight: bold;
+            }
+        }
+
+        .nav-arrow {
+            background-color: #e7e7e7;
+            border: none;
+            color: #6d6c6c;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        .pill-button {
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 20px;
+            background-color: #f5f5f5;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #ffe4d4;
+            }
+        }
+    }
+
+    .carousel-wrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; // Firefox
+            -ms-overflow-style: none; // IE
+
+            &::-webkit-scrollbar {
+                display: none; // Chrome, Safari
+            }
+
+            .card {
+                flex: 0 0 33%; // Show 3 cards at a time
+                margin: 0 0.5rem;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                padding: 1rem;
+                text-align: left;
+                position: relative; /* Make card container relative for overlay positioning */
+
+                img {
+                    width: 100%;
+                    border-radius: 10px;
+                    margin-bottom: 1rem;
+                    object-fit: cover; /* Ensure image covers the card */
+                }
+
+                .overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+                    color: white;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    visibility: hidden; /* Initially hidden */
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                &:hover .overlay {
+                    visibility: visible;
+                    opacity: 1; /* Show overlay text on hover */
+                }
+
+                .metric {
+                    font-size: 0.9rem;
+                    color: #8c8c8c;
+                    margin-bottom: 0.5rem;
+                }
+
+                h3 {
+                    font-size: 1.2rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                    color: #6e6e6e;
+                }
+            }
+        }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .heading-with-arrows {
+            .nav-arrow {
+                display: none; // Hide navigation arrows on mobile
+            }
+        }
+
+        .buttons {
+            display: none; // Hide pills on mobile
+        }
+
+        .carousel-wrapper .carousel .card {
+            flex: 0 0 70%; // Show 1.5 cards at a time
+        }
+    }
+}

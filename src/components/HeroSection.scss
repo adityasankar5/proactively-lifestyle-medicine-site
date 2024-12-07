@@ -6,6 +6,7 @@ $input-border: #ccc;
 .hero-section {
     position: relative;
     width: 100vw;
+    height:80vh;
     background-color: white;
     overflow-x: hidden;
     overflow-y:hidden;
@@ -63,6 +64,7 @@ $input-border: #ccc;
         background: linear-gradient(270deg, $primary-color, $secondary-color);
         transform: translateY(-50%) rotate(-1.27deg);
         z-index: 3;
+        overflow-x: hidden;
     }
 
     .mobile-input {
@@ -91,7 +93,7 @@ $input-border: #ccc;
                 flex-direction: column;
                 gap: 20px;
                 overflow-y: hidden;
-                height: 70vh;
+                height: 78vh;
                 width: 50%;
 
                 img {
@@ -152,6 +154,13 @@ $input-border: #ccc;
             overflow-x: hidden;
             white-space: nowrap;
             padding: 10px 0;
+                -webkit-overflow-scrolling: touch; // Adds smooth scrolling on iOS
+                    scrollbar-width: none; // For Firefox
+                
+                    /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
 
             img {
                 width: 150px;
@@ -166,6 +175,7 @@ $input-border: #ccc;
 
     /* Responsive Design */
     @media screen and (max-width: 768px) {
+        height: auto;
         .desktop-input{
             display: none;
         }
@@ -186,6 +196,7 @@ $input-border: #ccc;
                 gap: 10px;
                 width: 140%;
                 margin-left: -20%;
+                
             }
         }
 
