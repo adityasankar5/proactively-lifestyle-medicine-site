@@ -14,7 +14,7 @@ $input-border: #ccc;
     .inputs-container {
         display: flex;
         gap: 15px;
-        justify-content: center;
+        justify-content: space-between;
         flex-wrap: wrap;
         margin-top: 20px;
         margin-bottom: 40px;
@@ -29,15 +29,43 @@ $input-border: #ccc;
         left: 10%;
         z-index: 3;
 
-        .input-field {
-            padding: 12px 15px;
-            font-size: 16px;
-            border: 1px solid $input-border;
-            border-radius: 6px;
-            flex: 1;
-            min-width: 200px;
-            background-color: #f2f1f1;
-        }
+        .input-group {
+                position: relative; // Necessary for icon positioning
+                display: flex;
+                align-items: center;
+                width: 28%;
+        
+                .input-icon {
+                    position: absolute;
+                    left: 10px; // Adjust as needed
+                    color: #666; // Icon color
+                    font-size: 20px; // Adjust icon size
+                }
+        
+                .input-field {
+                    width: 100%;
+                    padding: 12px 15px 12px 40px; // Add left padding for the icon
+                    font-size: 16px;
+                    border: 1px solid $input-border;
+                    border-radius: 6px;
+                    background-color: #f2f1f1;
+        
+                    &:focus {
+                        border-color: $primary-color;
+                        outline: none;
+                    }
+                }
+            }
+
+        // .input-field {
+        //     padding: 12px 15px 12px 40px;
+        //     font-size: 16px;
+        //     border: 1px solid $input-border;
+        //     border-radius: 6px;
+        //     flex: 1;
+        //     min-width: 200px;
+        //     background-color: #f2f1f1;
+        // }
 
         .find-now-btn {
             padding: 12px 20px;
@@ -206,6 +234,16 @@ $input-border: #ccc;
             width: calc(100% - 40px); // Adjust width for mobile
             z-index: 4;
             height: auto;
+
+                    .input-field {
+                            padding: 12px 15px 12px 40px;
+                            font-size: 16px;
+                            border: 1px solid $input-border;
+                            border-radius: 6px;
+                            flex: 1;
+                            min-width: 200px;
+                            background-color: #f2f1f1;
+                        }
 
             .find-now-btn {
                 width: 100%;

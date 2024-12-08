@@ -8,7 +8,9 @@ import carousel21 from "../assets/carousel21.png";
 import carousel22 from "../assets/carousel22.png";
 import carousel23 from "../assets/carousel23.png";
 import carousel24 from "../assets/carousel24.png";
-import searchIcon from "../assets/searchIcon.png";
+import { CiSearch } from "react-icons/ci";
+import { FaLocationDot } from "react-icons/fa6";
+import { MdOutlineMedicalInformation } from "react-icons/md";
 
 const HeroSection = () => {
 
@@ -60,22 +62,33 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
   return (
 <section className="hero-section">
           <div className="inputs-container desktop-input">
-        <input
-          type="text"
-          placeholder="Condition, procedure, specialty"
-          className="input-field"
-        />      
-        <input
-          type="text"
-          placeholder="City, state, or zip code"
-          className="input-field"
-        />
-        <input
-          type="text"
-          placeholder="Insurance carrier"
-          className="input-field"
-        />
-        <button className="find-now-btn">Find Now</button>
+        <div className="input-group">
+  <FaLocationDot className="input-icon" />
+  <input
+    type="text"
+    placeholder="Condition, procedure, specialty"
+    className="input-field"
+  />
+</div>
+<div className="input-group">
+  <CiSearch className="input-icon" />
+  <input
+    type="text"
+    placeholder="City, state, or zip code"
+    className="input-field"
+  />
+</div>
+<div className="input-group">
+  <MdOutlineMedicalInformation className="input-icon" />
+  <input
+    type="text"
+    placeholder="Insurance carrier"
+    className="input-field"
+  />
+</div>
+<button className="find-now-btn">Find Now</button>
+
+
       </div>
   {/* Gradient Strip */}
 
@@ -108,6 +121,7 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
 
       {/* Input Fields */}
       <div className="inputs-container mobile-input">
+
         <input
           type="text"
           placeholder="Condition, procedure, speciality..."
