@@ -63,7 +63,7 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
 <section className="hero-section">
           <div className="inputs-container desktop-input">
         <div className="input-group">
-  <FaLocationDot className="input-icon" />
+  <CiSearch className="input-icon" />
   <input
     type="text"
     placeholder="Condition, procedure, specialty"
@@ -71,7 +71,7 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
   />
 </div>
 <div className="input-group">
-  <CiSearch className="input-icon" />
+  <FaLocationDot className="input-icon" />
   <input
     type="text"
     placeholder="City, state, or zip code"
@@ -123,7 +123,7 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
 {/* Input Fields for Mobile View */}
 <div className="inputs-container mobile-input">
   <div className="input-group">
-    <FaLocationDot className="input-icon" />
+    <CiSearch className="input-icon" />
     <input
       type="text"
       placeholder="Condition, procedure, specialty..."
@@ -131,7 +131,7 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
     />
   </div>
   <div className="input-group">
-    <CiSearch className="input-icon" />
+    <FaLocationDot className="input-icon" />
     <input
       type="text"
       placeholder="City, state, or zip code"
