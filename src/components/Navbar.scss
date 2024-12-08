@@ -73,7 +73,7 @@ html {
         display: none;
         cursor: pointer;
 
-        @media (max-width: 768px) {
+        @media (max-width: 976px) {
             display: block;
         }
     }
@@ -285,7 +285,7 @@ html {
     }
 
     // Responsive Styles
-    @media (max-width: 768px) {
+    @media (max-width: 976px) {
 
         .normal-text {
                 margin-right: 4rem;

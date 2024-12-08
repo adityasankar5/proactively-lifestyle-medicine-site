@@ -15,6 +15,7 @@ $input-border: #ccc;
         display: flex;
         gap: 15px;
         justify-content: space-between;
+        align-items: center;
         flex-wrap: wrap;
         margin-top: 20px;
         margin-bottom: 40px;
@@ -33,7 +34,9 @@ $input-border: #ccc;
                 position: relative; // Necessary for icon positioning
                 display: flex;
                 align-items: center;
-                width: 28%;
+                // width: 28%;
+                    flex: 1 1 calc(15% - 15px); // Ensure input fields shrink responsively
+                        min-width: 200px;
         
                 .input-icon {
                     position: absolute;
@@ -59,6 +62,10 @@ $input-border: #ccc;
 
 
         .find-now-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             padding: 12px 20px;
             font-size: 16px;
             color: white;
