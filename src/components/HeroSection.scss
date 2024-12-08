@@ -209,6 +209,7 @@ $input-border: #ccc;
         }
         .mobile-input{
             display:flex;
+            flex-direction: column;
         }
         .content-container {
             flex-direction: column;
@@ -234,6 +235,12 @@ $input-border: #ccc;
             width: calc(100% - 40px); // Adjust width for mobile
             z-index: 4;
             height: auto;
+            gap:6px;
+
+            .input-group {
+                width: 100%;
+                margin-bottom: 15px;
+            }
 
                     .input-field {
                             padding: 12px 15px 12px 40px;

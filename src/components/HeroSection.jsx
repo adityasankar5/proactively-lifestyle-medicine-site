@@ -120,25 +120,35 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
       </div>
 
       {/* Input Fields */}
-      <div className="inputs-container mobile-input">
+{/* Input Fields for Mobile View */}
+<div className="inputs-container mobile-input">
+  <div className="input-group">
+    <FaLocationDot className="input-icon" />
+    <input
+      type="text"
+      placeholder="Condition, procedure, specialty..."
+      className="input-field"
+    />
+  </div>
+  <div className="input-group">
+    <CiSearch className="input-icon" />
+    <input
+      type="text"
+      placeholder="City, state, or zip code"
+      className="input-field"
+    />
+  </div>
+  <div className="input-group">
+    <MdOutlineMedicalInformation className="input-icon" />
+    <input
+      type="text"
+      placeholder="Insurance carrier"
+      className="input-field"
+    />
+  </div>
+  <button className="find-now-btn">Find Now</button>
+</div>
 
-        <input
-          type="text"
-          placeholder="Condition, procedure, speciality..."
-          className="input-field"
-        />
-        <input
-          type="text"
-          placeholder="City, state, or zip code"
-          className="input-field"
-        />
-        <input
-          type="text"
-          placeholder="Insurance carrier"
-          className="input-field"
-        />
-        <button className="find-now-btn">Find Now</button>
-      </div>
     </div>
 
     {/* Mobile View: Horizontal Carousel */}
