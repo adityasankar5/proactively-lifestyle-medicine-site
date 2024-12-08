@@ -3,40 +3,68 @@
     margin: 0 auto;
     padding: 2rem 0rem;
     padding-right: 0;
-    text-align: center;
+    text-align: start;
     position: relative;
     overflow-x: hidden;
     width: 100vw;
+    
+
+    .how-it-works {
+            justify-content: start;
+            color: #707070;
+            font-size: 1rem;
+            margin-left: 4rem;
+            font-weight: 500;
+        }
 
     /* Heading with Navigation Arrows */
     .heading-with-arrows {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         gap: 1rem;
         margin-bottom: 1.5rem;
+        margin-left: 4rem;
 
         h2 {
             font-size: 1.5rem;
+            .nothighlight {
+                    color: #707070;
+                    font-size: 28px;
+                    font-weight: 400;
+                }
 
             .highlight {
-                color: #f26835; // Orange
-                font-weight: bold;
+background: linear-gradient(to right, #d96e7c, #f1ca72);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+                font-weight: 600;
+                font-size: 28px;
+                font-style: italic;
             }
+
+            
         }
 
         .nav-arrow {
-            background-color: #e7e7e7;
-            border: none;
-            color: #6d6c6c;
-            font-size: 1.5rem;
+            background-color: white;
+            border: 1px solid #C6C6C6;
+            color: #747474;
+            font-size: 1rem;
             width: 40px;
-            height: 40px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
+        }
+        .navigation{
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            margin-right: 7rem;
         }
     }
 
@@ -55,9 +83,11 @@
             font-size: 0.9rem;
             transition: background-color 0.3s;
 
-            &:hover {
-                background-color: #ffe4d4;
+            &:hover, &.active {
+                background-color: #000000;
+                color: white;
             }
+
         }
     }
 
@@ -140,10 +170,32 @@
     /* Responsive Styles */
     @media (max-width: 768px) {
         .heading-with-arrows {
-            .nav-arrow {
+            margin-left: 0;
+            justify-content: center;
+            .navigation {
                 display: none; // Hide navigation arrows on mobile
             }
+            h2{
+             display: flex;
+             align-items: baseline;
+                .highlight {
+                    font-size: 20px;
+                }
+
+                .nothighlight {
+                    font-size: 16px;
+                }   
+            }
         }
+
+                        .how-it-works {
+                            display: flex;
+                            justify-content: center;
+                            color: #707070;
+                            font-size: 1rem;
+                            margin-left: 0;
+                            font-weight: 500;
+                        }
 
         .buttons {
             display: none; // Hide pills on mobile
