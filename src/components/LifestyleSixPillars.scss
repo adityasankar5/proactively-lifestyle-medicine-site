@@ -102,6 +102,7 @@ background: linear-gradient(to right, #d96e7c, #f1ca72);
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
+            scroll-snap-align: start;
             scrollbar-width: none; // Firefox
             -ms-overflow-style: none; // IE
 
@@ -111,7 +112,7 @@ background: linear-gradient(to right, #d96e7c, #f1ca72);
 
             .card {
                 flex: 0 0 33%; // Show 3 cards at a time
-                margin: 0 0.5rem;
+                margin: 0 0.8rem;
                 background-color: white;
                 border-radius: 10px;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
