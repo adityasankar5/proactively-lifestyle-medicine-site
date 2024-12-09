@@ -7,12 +7,18 @@
   import pillar6 from "../assets/pillar6.png";
   import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
   import "./LifestyleSixPillars.scss";
+  import heartbeaticon from "../assets/Icons/heartbeaticon.png"
+  import hearticon from "../assets/Icons/hearticon.png"
+  import hearticon2 from "../assets/Icons/hearticon2.png"
+  import sleepicon from "../assets/Icons/sleepicon.png"
+  import clockicon from "../assets/Icons/clockicon.png"
 
   const cards = [
     {
       id: 1,
       title: "Nutrition",
       image: pillar1,
+      icon: heartbeaticon,
       metric: "121/80 mmHg",
       description:
         "Evidence supports the use of a whole food, plant-predominant diet to prevent, treat and reverse chronic illness.",
@@ -21,6 +27,8 @@
       id: 2,
       title: "Physical activity",
       image: pillar2,
+            icon: hearticon,
+
       metric: "32 minutes",
       description:
         "Regular physical activity is key to managing weight, improving mental health, and reducing risk of chronic disease.",
@@ -29,6 +37,8 @@
       id: 3,
       title: "Restorative sleep",
       image: pillar3,
+            icon: sleepicon,
+
       metric: "8 hours",
       description:
         "Consistent, quality sleep is essential for cognitive function and physical health.",
@@ -37,6 +47,8 @@
       id: 4,
       title: "Stress management",
       image: pillar4,
+            icon: hearticon2,
+
       metric: "60 bpm",
       description:
         "Effective stress management techniques are crucial for mental well-being and overall health.",
@@ -45,6 +57,8 @@
       id: 5,
       title: "Social connection",
       image: pillar5,
+            icon: hearticon,
+
       metric: "Feeling better",
       description:
         "Strong social connections are associated with a lower risk of many chronic diseases and enhanced mental health.",
@@ -53,6 +67,8 @@
       id: 6,
       title: "Substance abuse",
       image: pillar6,
+            icon: clockicon,
+
       metric: "62 days",
       description:
         "Avoiding tobacco, limiting alcohol use, and abstaining from harmful substances are vital for long-term health.",
@@ -117,8 +133,10 @@
           <div className="carousel" ref={carouselRef} onScroll={handleScroll}>
             {cards.map((card) => (
               <div className="card" key={card.id}>
-                <img src={card.image} alt={card.title} />
-                <div className="metric">{card.metric}</div>
+                    <div className="image-wrapper">
+      <img src={card.image} alt={card.title} />
+      <div className="metric"><img src={card.icon}></img>{card.metric}</div>
+    </div>
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
               </div>

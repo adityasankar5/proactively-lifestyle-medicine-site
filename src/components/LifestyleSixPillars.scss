@@ -117,42 +117,47 @@ background: linear-gradient(to right, #d96e7c, #f1ca72);
                 text-align: left;
                 position: relative; /* Make card container relative for overlay positioning */
 
+                .image-wrapper {
+                        position: relative;
                 img {
                     width: 100%;
                     border-radius: 10px;
                     margin-bottom: 1rem;
                     object-fit: cover; /* Ensure image covers the card */
                 }
+                    .metric {
+                        position: absolute;
+                        bottom: 2rem;
+                        /* Adjust based on desired position */
+                        left: 1rem;
+                        /* Adjust based on desired position */
+                        background-color: white;
+                        opacity: 87%;
+                        color: #333;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                        padding: 0.3rem 0.8rem;
+                        border-radius: 20px;
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                        white-space: nowrap;
+                        /* Prevent text wrapping */
+                        display: flex;
+                        /* Use flexbox to align items */
+                        align-items: center;
+                        /* Vertically align icon and text */
+                        gap: 0.4rem;
+                        /* Add space between icon and text */
+                        img {
+                            height: 20px;
+                            width: auto;
+                            border-radius: 0;
+                            
+                            
+                        }
+                    }
 
-                .overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-                    color: white;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 1rem;
-                    border-radius: 10px;
-                    visibility: hidden; /* Initially hidden */
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                }
+            }
 
-                &:hover .overlay {
-                    visibility: visible;
-                    opacity: 1; /* Show overlay text on hover */
-                }
-
-                .metric {
-                    font-size: 0.9rem;
-                    color: #8c8c8c;
-                    margin-bottom: 0.5rem;
-                }
 
                 h3 {
                     font-size: 1.2rem;
