@@ -19,7 +19,8 @@
       title: "Nutrition",
       image: pillar1,
       icon: heartbeaticon,
-      metric: "121/80 mmHg",
+      metric1: "121/80",
+      metric2: "mmHg",
       description:
         "Evidence supports the use of a whole food, plant-predominant diet to prevent, treat and reverse chronic illness.",
     },
@@ -29,7 +30,8 @@
       image: pillar2,
             icon: hearticon,
 
-      metric: "32 minutes",
+      metric1: "32 ",
+      metric2: "minutes",
       description:
         "Regular physical activity is key to managing weight, improving mental health, and reducing risk of chronic disease.",
     },
@@ -39,7 +41,8 @@
       image: pillar3,
             icon: sleepicon,
 
-      metric: "8 hours",
+      metric1: "8",
+      metric2: " hours",
       description:
         "Consistent, quality sleep is essential for cognitive function and physical health.",
     },
@@ -49,7 +52,8 @@
       image: pillar4,
             icon: hearticon2,
 
-      metric: "60 bpm",
+      metric1: "60",
+      metric2:" bpm",
       description:
         "Effective stress management techniques are crucial for mental well-being and overall health.",
     },
@@ -59,7 +63,8 @@
       image: pillar5,
             icon: hearticon,
 
-      metric: "Feeling better",
+      metric1: "Feeling",
+      metric2:" better",
       description:
         "Strong social connections are associated with a lower risk of many chronic diseases and enhanced mental health.",
     },
@@ -69,7 +74,8 @@
       image: pillar6,
             icon: clockicon,
 
-      metric: "62 days",
+      metric1: "62",
+      metric2: "days",
       description:
         "Avoiding tobacco, limiting alcohol use, and abstaining from harmful substances are vital for long-term health.",
     },
@@ -135,7 +141,7 @@
               <div className="card" key={card.id}>
                     <div className="image-wrapper">
       <img src={card.image} alt={card.title} />
-      <div className="metric"><img src={card.icon}></img>{card.metric}</div>
+      <div className="metric"><img src={card.icon}></img>{card.metric1}<span>{card.metric2}</span></div>
     </div>
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
