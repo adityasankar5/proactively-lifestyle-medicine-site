@@ -23,7 +23,7 @@ $input-border: #ccc;
         box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
         border-radius: 12px;
         background-color: white;
-        position: absolute; // Default for desktop view
+        position: absolute; 
         width: 80vw;
         height:6vh;
         top: 62%;
@@ -31,23 +31,22 @@ $input-border: #ccc;
         z-index: 3;
 
         .input-group {
-                position: relative; // Necessary for icon positioning
+                position: relative; 
                 display: flex;
                 align-items: center;
-                // width: 28%;
-                    flex: 1 1 calc(15% - 15px); // Ensure input fields shrink responsively
-                        min-width: 200px;
+                flex: 1 1 calc(15% - 15px); 
+                min-width: 200px;
         
                 .input-icon {
                     position: absolute;
-                    left: 10px; // Adjust as needed
-                    color: #666; // Icon color
-                    font-size: 20px; // Adjust icon size
+                    left: 10px; 
+                    color: #666; 
+                    font-size: 20px; 
                 }
         
                 .input-field {
                     width: 100%;
-                    padding: 12px 15px 12px 40px; // Add left padding for the icon
+                    padding: 12px 15px 12px 40px; 
                     font-size: 16px;
                     border: 1px solid $input-border;
                     border-radius: 6px;
@@ -113,7 +112,6 @@ $input-border: #ccc;
             margin-right: 30px;
             gap: 10px;
 
-            /* Space between carousel and text */
             .carousel {
                 display: flex;
                 flex-direction: column;
@@ -184,7 +182,6 @@ $input-border: #ccc;
                 -webkit-overflow-scrolling: touch; // Adds smooth scrolling on iOS
                     scrollbar-width: none; // For Firefox
                 
-                    /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
                     &::-webkit-scrollbar {
                         display: none;
                     }
@@ -229,9 +226,9 @@ $input-border: #ccc;
         }
 
         .inputs-container {
-            position: static; // Remove absolute positioning for mobile
+            position: static; 
             margin: 20px auto;
-            width: calc(100% - 40px); // Adjust width for mobile
+            width: calc(100% - 40px); 
             z-index: 4;
             height: auto;
             gap:6px;
@@ -259,14 +256,14 @@ $input-border: #ccc;
         .content-container{
 
         .text-container {
-            order: -1; // Ensure the text comes before the input fields
+            order: -1;
             margin-bottom: 20px;
             margin-top: 0vh;
 
             .heading-container {
                 margin-bottom: 0px;
                 h1 {
-                    font-size: 28px; // Adjust font size for smaller screens
+                    font-size: 28px; 
                     font-weight: 600;
                     width: 90%;
                 }

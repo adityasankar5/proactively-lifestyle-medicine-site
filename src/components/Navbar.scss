@@ -12,10 +12,10 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw; // Ensures it spans the full viewport width
+    width: 100vw;
     padding: 1rem 2rem;
-    background-color: #fff; // Figma background color
-    box-sizing: border-box; // Prevent padding from reducing width
+    background-color: #fff; 
+    box-sizing: border-box; 
     border-bottom: 1px solid #eaeaea;
 
     // Logo and Icon Container
@@ -27,22 +27,22 @@ html {
 
     // Logo Icon Styling
     &__icon {
-        width: 50px; // Adjust size to match Figma
+        width: 50px; 
         height: 50px;
-        border-radius: 10px; // Rounded edges for a "soft" look
+        border-radius: 10px; 
         box-shadow: 0px 1.45px 10px 0px rgba(0, 0, 0, 0.25);
-        margin-right: 0.5rem; // Spacing between icon and text
+        margin-right: 0.5rem; 
         position: relative;
-        top: 1px; // Slightly above the text
+        top: 1px; 
     }
 
     // Logo Text Styling
     &__logo {
-        font-size: 1.5rem; // Match Figma font size
+        font-size: 1.5rem; 
         font-weight: 600;
-        color: #000; // Figma font color
+        color: #000; 
         position: relative;
-        top: 4px; // Align text vertically to centerline of the icon
+        top: 4px;
     }
 
     // Navbar Links
@@ -52,18 +52,18 @@ html {
 
         a {
             text-decoration: none;
-            color: #707070; // Match Figma link color
+            color: #707070;
             font-weight: 500;
             position: relative;
 
             &::after {
                 content: "|";
-                margin: 0 10px;
+                margin-left: 10px;
                 color: #707070;
             }
 
             &:last-child::after {
-                content: ""; // Ensure no "|" after the last link
+                content: "";
             }
         }
     }
@@ -92,16 +92,13 @@ html {
         align-items: center;
         justify-content: center;
         transform: translateX(110%);
-        /* Initially off-screen */
         transition: transform 0.3s ease-in-out;
-        /* Transition on transform */
 
         &.active {
         transform: translateX(0);
-            /* Slide in when active */        }
+        }
 
         &__contents {
-            // margin-top:vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -157,19 +154,15 @@ html {
                                 a {
                                     text-decoration: none;
                                     color: #000;
-                                    font-weight: 400; // Font weight from Figma
-                        
-                                    // &:hover {
-                                    //     background-color: #f0f0f0;
-                                    // }
+                                    font-weight: 400; 
                         
                                     &.login-signup {
-                                        color: #4384e6; // Blue color for links
+                                        color: #4384e6; 
                                         text-decoration: underline;
                                     }
                         
                                     &::after {
-                                        content: ""; // Remove "|" from dropdown links
+                                        content: "";
                                     }
                                 }
                             }
@@ -230,12 +223,12 @@ html {
         .navbar__dropdown-content {
             display: none; // Hide dropdown by default
             position: absolute;
-            top: 100%; // Position it below the "Login / Signup" link
-            left: 50%; // Position it in the center horizontally
-            transform: translateX(-50%); // Offset to ensure it's centered
+            top: 100%; 
+            left: 50%; 
+            transform: translateX(-50%); 
             background-color: #fff;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            width: 240px; // Adjusted width for the items to fit
+            width: 240px; 
             border-radius: 4px;
             z-index: 1000;
             padding: 8px 0;
@@ -249,19 +242,19 @@ html {
                 a {
                     text-decoration: none;
                     color: #000;
-                    font-weight: 400; // Font weight from Figma
+                    font-weight: 400;
 
                     &:hover {
                         background-color: #f0f0f0;
                     }
 
                     &.login-signup {
-                        color: #0066cc; // Blue color for links
+                        color: #0066cc; 
                         text-decoration: underline;
                     }
 
                     &::after {
-                        content: ""; // Remove "|" from dropdown links
+                        content: ""; 
                     }
                 }
             }
@@ -281,7 +274,7 @@ html {
 
     // Navbar Login Text Fix
     &__login::after {
-        content: ""; // Remove the "|" after the Login/Signup link
+        content: "";
     }
 
     // Responsive Styles
@@ -300,7 +293,7 @@ html {
             
 
             a {
-                color: #fff; // White links for better visibility on dark overlay
+                color: #fff;
                 padding: 1rem;
                 width: 100%;
                 text-align: center;

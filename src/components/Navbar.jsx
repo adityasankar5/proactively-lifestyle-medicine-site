@@ -10,11 +10,11 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev); // Toggle state value
+    setIsMenuOpen((prev) => !prev);
   };
 
   const closeMenu = () => {
-    setIsMenuOpen(false); // Close the menu explicitly
+    setIsMenuOpen(false); 
   };
 
   return (

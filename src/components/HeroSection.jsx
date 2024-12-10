@@ -14,9 +14,9 @@ import { MdOutlineMedicalInformation } from "react-icons/md";
 
 const HeroSection = () => {
 
-const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
-  const imagesRight = [carousel21, carousel22, carousel23, carousel24];
-  const allImages = [...imagesLeft, ...imagesRight];
+const imagesLeft = [carousel11, carousel12, carousel13, carousel14, carousel11, carousel12, carousel13, carousel14];
+  const imagesRight = [carousel21, carousel22, carousel23, carousel24,carousel21, carousel22, carousel23, carousel24];
+  const allImages = [...imagesLeft.slice(0, 4), ...imagesRight.slice(0, 4)];
 
   const leftCarouselRef = useRef(null);
   const rightCarouselRef = useRef(null);
@@ -91,11 +91,7 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
 
 
       </div>
-  {/* Gradient Strip */}
-
   <div className="gradient-strip"></div>
-
-  {/* Hero Content */}
   <div className="content-container">
     {/* Desktop View: Carousels */}
     <div className="desktop-carousels">
@@ -119,8 +115,6 @@ const imagesLeft = [carousel11, carousel12, carousel13, carousel14];
         </h1>
         <p>Optimize your lifestyle and reverse chronic diseases.</p>
       </div>
-
-      {/* Input Fields */}
 {/* Input Fields for Mobile View */}
 <div className="inputs-container mobile-input">
   <div className="input-group">
