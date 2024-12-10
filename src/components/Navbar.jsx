@@ -89,9 +89,9 @@ const Navbar = () => {
               "Speakers",
               "Doctors",
             ].map((item, index) => (
-              <li key={index} className="navbar__overlay__menu-item">
+              <li key={index} className="navbar__overlay__menu-item" onClick={toggleMenu}>
                 {item}
-                <img src={rightArrow} height="15px" alt="Right Arrow" onClick={toggleMenu} />
+                <img src={rightArrow} height="15px" alt="Right Arrow"  />
               </li>
             ))}
           </ul>
